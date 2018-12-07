@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<configuration>
+    <observar>/opt/tmp</observar>
+
+    <envio-archivo>
+        <ip>192.168.1.102</ip>
+        <user>Servidor-C&amp;M</user>
+        <password>sistemas1@cym</password>
+        <puerto>21</puerto>
+        <timesleep>5000</timesleep>
+    </envio-archivo>
+
+</configuration>

@@ -4,6 +4,8 @@ package consulting.sendfile.servicios;
 import org.apache.log4j.Logger;
 
 import java.nio.file.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static java.nio.file.StandardWatchEventKinds.*;
 
@@ -39,7 +41,7 @@ public class EscucharRutaDirectorioImpl implements EscucharRutaDirectorio {
         try {
             watcher.close();
         } catch (Exception e) {
-            log.info(e.getMessage(),e);
+            log.info(e.getMessage(), e);
         }
     }
 
@@ -60,7 +62,7 @@ public class EscucharRutaDirectorioImpl implements EscucharRutaDirectorio {
             }
 
         } catch (Exception e) {
-            log.info(e.getMessage(),e);
+            log.info(e.getMessage(), e);
         }
     }
 
@@ -68,10 +70,18 @@ public class EscucharRutaDirectorioImpl implements EscucharRutaDirectorio {
         WatchEvent.Kind<?> tipoEvento = watchEvent.kind();
         if (tipoEvento == ENTRY_CREATE) {
             Path fileName = (Path) watchEvent.context();
-            arcihvoCreado.onArchivoCreado(rutaDirectorio + "/" + fileName.toString());
+            if (isWav(fileName.toString())) {
+                arcihvoCreado.onArchivoCreado(rutaDirectorio + "/" + fileName.toString());
+            }
         }
     }
 
+    private boolean isWav(String nombreArchivo) {
+        String regex = ".wav$";
+        Pattern patron = Pattern.compile(regex);
+        Matcher emparejador = patron.matcher(nombreArchivo);
+        return emparejador.find();
+    }
 
     public boolean isStop() {
         return stop;

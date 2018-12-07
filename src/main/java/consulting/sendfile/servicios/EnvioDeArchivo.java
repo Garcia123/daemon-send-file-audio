@@ -3,7 +3,7 @@ package consulting.sendfile.servicios;
 public interface EnvioDeArchivo {
 
     static EnvioDeArchivo newInstance() {
-        return null;
+        return new EnvioDeArchivoImpl();
     }
 
     void enviarArchivo(String rutaArchivo);
@@ -11,13 +11,15 @@ public interface EnvioDeArchivo {
     Build config();
 
     interface Build {
-        Build setUsuario();
+        Build setUsuario(String usuario);
 
-        Build setPassword();
+        Build setPassword(String password);
 
-        Build setIP();
+        Build setIP(String ip);
 
-        Build setPuerto();
+        Build setPuerto(int puerto);
+
+        Build setTiempoEspera(int tiempoEspera);
 
         EnvioDeArchivo build();
     }

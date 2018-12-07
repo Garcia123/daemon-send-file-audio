@@ -21,19 +21,30 @@ public class DaemonApp implements Daemon {
 
     @Override
     public void init(DaemonContext context) throws DaemonInitException, Exception {
-        PropertyConfigurator.configure(System.getProperty("configSendFile"));
-        log.info("se guardo cargo el archivo de configuracion correctamente...");
+
+        PropertyConfigurator.configure(System.getProperty("log4j"));
+        log.info("iniciando proceso...");
+        log.info("se cargo el archivo de configuracion " + System.getProperty("log4j") + " correctamente...");
         _poolProcesos = PoolProcesos.newInstance();
         _conf = Configuracion.newInstance();
         _escuchar = EscucharRutaDirectorio.newInstance();
 
-        _conf.setRutaArchivoXml(System.getProperty("pathConfigXml"));
-        _envioDeArchivo = EnvioDeArchivo.newInstance();
+        _conf.setRutaArchivoXml(System.getProperty("config"));
+
+        _envioDeArchivo = EnvioDeArchivo.newInstance().config()
+            .setIP(_conf.getString("envio-archivo.ip"))
+            .setPuerto(_conf.getInt("envio-archivo.puerto"))
+            .setUsuario(_conf.getString("envio-archivo.user"))
+            .setPassword(_conf.getString("envio-archivo.password"))
+            .setTiempoEspera(_conf.getInt("envio-archivo.timesleep"))
+        .build();
+
+        log.info(String.format("se cargo el archivo %s", System.getProperty("config")));
+        log.info(String.format("directorio a observar: %s", _conf.getString("observar")));
 
         _poolProcesos
-            .agregarProceso(_escuchar.setRutaArchivo(_conf.getString("observe"))
+            .agregarProceso(_escuchar.setRutaArchivo(_conf.getString("observar"))
             .setOnArcihvoCreado(_envioDeArchivo::enviarArchivo));
-
     }
 
     @Override
@@ -43,11 +54,14 @@ public class DaemonApp implements Daemon {
 
     @Override
     public void stop() throws Exception {
-
+        log.info("deteniendo el proceso...");
+        _poolProcesos.detenerProceso();
     }
 
     @Override
     public void destroy() {
-
+        _poolProcesos = null;
+        _escuchar = null;
+        _conf = null;
     }
 }
