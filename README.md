@@ -82,6 +82,26 @@ root@sistemep2:/opt#
 root@sistemep2:/opt# /opt/daemon-send-file-audio/bin/script-run.sh status
 [ ok ] is running.
 ```
+## configuración del servico FTP
+para configurar las credenciales tienes que editar el siguiente archivo <b>send-file-audio.xml</b>. Con preferencia <b>vim</b>
+```
+root@sistemep2:/opt# cat /opt/daemon-send-file-audio/etc/send-file-audio.xml 
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<configuration>
+    <!--	<observar>/opt/tmp</observar> -->
+    <observar>/home/pi/sistemep/ui/dist/assets/records</observar>
+    <envio-archivo>
+        <ip>192.168.1.102</ip>
+        <user>Servidor-C&amp;M</user>
+        <password>sistemas1@cym</password>
+        <puerto>21</puerto>
+        <timesleep>15000</timesleep>
+    </envio-archivo>
+
+</configuration>
+```
+
+
 ## para ver el log del demonio
 ```
 root@sistemep2:/opt# tail -f daemon-send-file-audio/var/log/daemon-send-file-audio.log 
