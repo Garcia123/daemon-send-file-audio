@@ -29,7 +29,7 @@ public class EnvioDeArchivoImpl implements EnvioDeArchivo {
 
             log.info(String.format("conectando al servicio ftp=%s", toString()));
 
-            ftpClient.connect(InetAddress.getByName(ip));
+            ftpClient.connect(InetAddress.getByName(ip),puerto);
             ftpClient.login(usuario, password);
             int reply = ftpClient.getReplyCode();
             if (FTPReply.isPositiveCompletion(reply)) {
