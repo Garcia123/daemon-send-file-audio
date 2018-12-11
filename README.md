@@ -65,4 +65,9 @@ daemon-send-file-audio/
         └── daemon-send-file-audio.pid
 ```
 ## iniciar el proceso
-
+tiene que ejecutar el siguiente fichero <b> script-run.sh </b>. Ejemplo:
+```
+root@sistemep2:/opt# /opt/daemon-send-file-audio/bin/script-run.sh start
+[ ok ] iniciando servicio daemon-send-file-audio:.
+root@sistemep2:/opt# 
+```
