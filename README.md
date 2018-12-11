@@ -65,9 +65,34 @@ daemon-send-file-audio/
         └── daemon-send-file-audio.pid
 ```
 ## iniciar el proceso
-tiene que ejecutar el siguiente fichero <b> script-run.sh </b>. Ejemplo:
+se tiene que ejecutar el siguiente fichero <b> script-run.sh </b>. Ejemplo:
 ```
 root@sistemep2:/opt# /opt/daemon-send-file-audio/bin/script-run.sh start
 [ ok ] iniciando servicio daemon-send-file-audio:.
 root@sistemep2:/opt# 
+```
+## para el proceso
+```
+root@sistemep2:/opt# /opt/daemon-send-file-audio/bin/script-run.sh stop
+[ ok ] se tenio el proceso daemon-send-file-audio...
+root@sistemep2:/opt# 
+```
+## para ver el estado del proceso
+```
+root@sistemep2:/opt# /opt/daemon-send-file-audio/bin/script-run.sh status
+[ ok ] is running.
+```
+## para ver el log del demonio
+```
+root@sistemep2:/opt# tail -f daemon-send-file-audio/var/log/daemon-send-file-audio.log 
+2018-12-11 23:23:44.053 [INFO ]: deteniendo el proceso...
+2018-12-11 23:23:55.674 [INFO ]: iniciando proceso...
+2018-12-11 23:23:55.686 [INFO ]: se cargo el archivo de configuracion /opt/daemon-send-file-audio/etc/log4j.properties correctamente...
+2018-12-11 23:23:57.007 [INFO ]: se cargo el archivo /opt/daemon-send-file-audio/etc/send-file-audio.xml
+2018-12-11 23:23:57.010 [INFO ]: directorio a observar: /home/pi/sistemep/ui/dist/assets/records
+2018-12-11 23:33:56.320 [INFO ]: deteniendo el proceso...
+2018-12-11 23:35:46.553 [INFO ]: iniciando proceso...
+2018-12-11 23:35:46.565 [INFO ]: se cargo el archivo de configuracion /opt/daemon-send-file-audio/etc/log4j.properties correctamente...
+2018-12-11 23:35:47.823 [INFO ]: se cargo el archivo /opt/daemon-send-file-audio/etc/send-file-audio.xml
+2018-12-11 23:35:47.826 [INFO ]: directorio a observar: /home/pi/sistemep/ui/dist/assets/records
 ```
