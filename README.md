@@ -15,8 +15,7 @@ Manual de operaciones
 Este manual tiene como objetivo, mostrar la arquitectura de carpetas y como solucionar los problemas que puedan ocurrir
 
 ## ingrsar al sistemEP
-
-Se tiene que ingresar por el protocolo ssh. Ante de ingresar configurar la red. Por otro lado, recuerda hacer el "sudo su".
+Se tiene que ingresar por el protocolo ssh. Antes de ingresar se debe configurar la red. Por otro lado, recuerda hacer el "sudo su" despues de ingresar.
 
 Ejemplo
 ```
@@ -25,7 +24,7 @@ ssh pi@192.168.100.14
 <img src="recursos/ingresar-sistemep.png" width="100%">
 
 ## Arquitectura de carpetas.
-Este punto puestra como esta clasificado las carpetas en el sistemaEP. <br>
+Este punto muestra como esta clasificado las carpetas en el sistemaEP. <br>
 <b>bin:</b> script para ejecutar.<br>
 <b>etc:</b> archivos de configuracion. <br>
 <b>lib:</b> todas las librerias que se están utilisando. <br>
@@ -65,4 +64,5 @@ daemon-send-file-audio/
     └── run
         └── daemon-send-file-audio.pid
 ```
+## iniciar el proceso
 
