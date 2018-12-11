@@ -71,7 +71,7 @@ root@sistemep2:/opt# /opt/daemon-send-file-audio/bin/script-run.sh start
 [ ok ] iniciando servicio daemon-send-file-audio:.
 root@sistemep2:/opt# 
 ```
-## para el proceso
+## para detener el proceso
 ```
 root@sistemep2:/opt# /opt/daemon-send-file-audio/bin/script-run.sh stop
 [ ok ] se tenio el proceso daemon-send-file-audio...
