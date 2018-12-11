@@ -63,5 +63,6 @@ public class DaemonApp implements Daemon {
         _poolProcesos = null;
         _escuchar = null;
         _conf = null;
+        _envioDeArchivo = null;
     }
 }

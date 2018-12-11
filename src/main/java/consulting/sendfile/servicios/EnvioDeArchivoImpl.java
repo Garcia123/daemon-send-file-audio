@@ -10,7 +10,6 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.InetAddress;
-import java.util.regex.Pattern;
 
 public class EnvioDeArchivoImpl implements EnvioDeArchivo {
 
