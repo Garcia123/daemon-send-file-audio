@@ -25,13 +25,13 @@ ssh pi@192.168.100.14
 <img src="recursos/ingresar-sistemep.png" width="100%">
 
 ## Arquitectura de carpetas.
-<br>Este punto puestra como esta clasificado las carpetas en el sistemaEP. <br>
-bin: script para ejecutar.<br>
-etc: archivos de configuracion. <br>
-lib: todas las librerias que se están utilisando. <br>
-var: directorio donde esta el log y run. <br>
-var/log: aqui se guarda los log del demonio. <br>
-var/run: aqui se guarda el fichero pid del demonio. <br>
+Este punto puestra como esta clasificado las carpetas en el sistemaEP. <br>
+<b>bin:</b> script para ejecutar.<br>
+<b>etc:</b> archivos de configuracion. <br>
+<b>lib:</b> todas las librerias que se están utilisando. <br>
+<b>var:</b> directorio donde esta el log y run. <br>
+<b>var/log:</b> aqui se guarda los log del demonio. <br>
+<b>var/run:</b> aqui se guarda el fichero pid del demonio. <br>
 
 ```
 root@sistemep2:/opt# tree daemon-send-file-audio/
