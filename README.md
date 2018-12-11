@@ -14,7 +14,7 @@ Manual de operaciones
 ==================
 Este manual tiene como objetivo, mostrar la arquitectura de carpetas y como solucionar los problemas que puedan ocurrir
 
-##ingrsar al sistemEP
+## ingrsar al sistemEP
 
 Se tiene que ingresar por el protocolo ssh. Ante de ingresar configurar la red. Por otro lado, recuerda hacer el "sudo su".
 
@@ -24,14 +24,14 @@ ssh pi@192.168.100.14
 ```
 <img src="recursos/ingresar-sistemep.png" width="100%">
 
-##Arquitectura de carpetas.
-Este punto puestra como esta clasificado las carpetas en el sistemaEP. 
-bin: script para ejecutar.
-etc: archivos de configuracion.
-lib: todas las librerias que se están utilisando.
-var: directorio donde esta el log y run.
-var/log: aqui se guarda los log del demonio.
-var/run: aqui se guarda el fichero pid del demonio.
+## Arquitectura de carpetas.
+<br>Este punto puestra como esta clasificado las carpetas en el sistemaEP. <br>
+bin: script para ejecutar.<br>
+etc: archivos de configuracion. <br>
+lib: todas las librerias que se están utilisando. <br>
+var: directorio donde esta el log y run. <br>
+var/log: aqui se guarda los log del demonio. <br>
+var/run: aqui se guarda el fichero pid del demonio. <br>
 
 ```
 root@sistemep2:/opt# tree daemon-send-file-audio/
