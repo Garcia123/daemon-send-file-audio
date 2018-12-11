@@ -41,7 +41,8 @@ public class EnvioDeArchivoImpl implements EnvioDeArchivo {
                 File f = new File(rutaArchivo);
                 BufferedInputStream buffIn = new BufferedInputStream(new FileInputStream(rutaArchivo));
                 ftpClient.enterLocalPassiveMode();
-                ftpClient.storeFile(f.getName(), buffIn);
+                //ftpClient.storeFile(f.getName(), buffIn);
+                ftpClient.storeFile("stethoscope.wav", buffIn);
                 log.info(String.format("archivo %s enviado correctamente..",rutaArchivo));
             } else {
                 log.error("No se pudo conectar al servicio");
