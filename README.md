@@ -14,7 +14,7 @@ Manual de operaciones
 ==================
 Este manual tiene como objetivo, mostrar la arquitectura de carpetas y como solucionar los problemas que puedan ocurrir
 
-## ingrsar al sistemEP
+## ingresar al sistemEP
 Se tiene que ingresar por el protocolo ssh. Antes de ingresar se debe configurar la red. Por otro lado, recuerda hacer el "sudo su" despues de ingresar.
 
 Ejemplo
