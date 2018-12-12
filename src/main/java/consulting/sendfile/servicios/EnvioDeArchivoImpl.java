@@ -18,6 +18,7 @@ public class EnvioDeArchivoImpl implements EnvioDeArchivo {
     private String usuario;
     private String password;
     private String ip;
+    private String directorioTrabajo;
     private int puerto;
     private int tiempoEspera;
 
@@ -33,7 +34,7 @@ public class EnvioDeArchivoImpl implements EnvioDeArchivo {
             ftpClient.login(usuario, password);
             int reply = ftpClient.getReplyCode();
             if (FTPReply.isPositiveCompletion(reply)) {
-                //ftpClient.changeWorkingDirectory("/cdrdata/incoming_parser");
+                ftpClient.changeWorkingDirectory(directorioTrabajo);
                 log.info("conexion ftp satisfactoria...");
                 Thread.sleep(tiempoEspera);
                 ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
@@ -43,6 +44,7 @@ public class EnvioDeArchivoImpl implements EnvioDeArchivo {
                 //ftpClient.storeFile(f.getName(), buffIn);
                 ftpClient.storeFile("stethoscope.wav", buffIn);
                 log.info(String.format("archivo %s enviado correctamente..",rutaArchivo));
+                buffIn.close();
             } else {
                 log.error("No se pudo conectar al servicio");
             }
@@ -70,6 +72,7 @@ public class EnvioDeArchivoImpl implements EnvioDeArchivo {
                 "usuario='" + usuario + '\'' +
                 ", password='" + password + '\'' +
                 ", ip='" + ip + '\'' +
+                ", directorioTrabajo='" + directorioTrabajo + '\'' +
                 ", puerto=" + puerto +
                 '}';
     }
@@ -102,6 +105,12 @@ public class EnvioDeArchivoImpl implements EnvioDeArchivo {
         @Override
         public Build setPuerto(int puerto) {
             envArc.puerto = puerto;
+            return this;
+        }
+
+        @Override
+        public Build setDirectorioTrabajo(String directorioTrabajo) {
+            envArc.directorioTrabajo = directorioTrabajo;
             return this;
         }
 

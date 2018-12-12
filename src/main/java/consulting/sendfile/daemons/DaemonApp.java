@@ -36,6 +36,7 @@ public class DaemonApp implements Daemon {
             .setPuerto(_conf.getInt("envio-archivo.puerto"))
             .setUsuario(_conf.getString("envio-archivo.user"))
             .setPassword(_conf.getString("envio-archivo.password"))
+            .setDirectorioTrabajo(_conf.getString("envio-archivo.directorio-trabajo"))
             .setTiempoEspera(_conf.getInt("envio-archivo.timesleep"))
         .build();
 

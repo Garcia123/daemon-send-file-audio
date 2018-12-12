@@ -11,6 +11,9 @@ public interface EnvioDeArchivo {
     Build config();
 
     interface Build {
+
+        Build setDirectorioTrabajo(String directorioTrabajo);
+
         Build setUsuario(String usuario);
 
         Build setPassword(String password);
